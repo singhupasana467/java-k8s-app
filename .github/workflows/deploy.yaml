@@ -36,32 +36,5 @@ jobs:
       with:
         version: latest
 
-    - name: Prepare kubeconfig
-      run: |
-        echo "🔧 Creating .kube directory..."
-        mkdir -p $HOME/.kube
-
-        echo "📦 Decoding kubeconfig..."
-        echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
-
-        echo "🔐 Securing permissions..."
-        chmod 600 $HOME/.kube/config
-
-        echo "✅ kubeconfig ready at $HOME/.kube/config"
-
-    - name: Verify cluster access
-      run: kubectl get nodes --kubeconfig=$HOME/.kube/config
-
-    - name: Configure Kubernetes
-      run: |
-        mkdir -p $HOME/.kube
-        echo "${{secrets.KUBE_CONFIG}}" | base64 --decode > $HOME/.kube/config
-    
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f k8s/deployment.yaml
-        kubectl apply -f k8s/service.yaml
-
-
         
             
