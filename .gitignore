@@ -1,0 +1,41 @@
+# Java build artifacts
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven target directory
+target/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# IDE-specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Environment and secrets
+.env
+*.key
+*.pem
+
+# Docker artifacts
+*.pid
+*.tar
+
+# Kubernetes configs (optional if generated)
+*.yaml
+*.yml
+
+# GitHub Actions cache (optional)
+.github/
